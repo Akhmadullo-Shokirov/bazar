@@ -1,0 +1,314 @@
+[
+  {
+    "lineOfBusiness":"Electronics",
+    "productLine": [
+      {
+        "name": "Cell Phones and Accessories",
+        "subcategories": [ "Smartphones", "Smartwatches", "Tablets", "GSM Accessories", "Cases, Covers and Holsters"]
+      },
+      {
+        "name": "Computers",
+        "subcategories": ["Laptops", "Laptop Parts", "PCs", "Computer Components", "Printers and Scanners"]
+      },
+      {
+        "name": "TVs and accessories",
+        "subcategories": ["Televisions", "Projectors", "Headphones", "Home Audio", "Home Cinema"]
+      },
+      {
+        "name": "Consoles and Gaming Machines",
+        "subcategories": ["Console PlayStation 5", "Console Xbox Series X/S", "Console PlayStation 4", "Console Xbox One", "Console Nintendo Switch"]
+      },
+      {
+        "name": "Small Appliances",
+        "subcategories": ["Kitchen, cooking","Hygiene and Care", "Home", "Vacuum Cleaners"]
+      },
+      {
+        "name": "Home Appliances",
+        "subcategories": ["Refrigerators", "Washing Machines", "Clothes Dryers", "Freestanding Kitchens"]
+      },
+      {
+        "name": "Built-in Appliances",
+        "subcategories": ["Heating Plates","Built-in ovens", "Built-in dishwashers", "Kitchen hoods"]
+      },
+      {
+        "name": "Photography",
+        "subcategories": ["Digital cameras", "Lenses", "Photo Accessories", "Instant Cameras(Instax, Polaroid)"]
+      }
+    ]
+  },
+  {
+    "lineOfBusiness": "Fashion",
+    "productLine": [
+      {
+        "name" : "Her",
+        "subcategories": ["Women's Clothing", "Women's Shoes","Women's lingerie", "Women's Watches", "Women's Jewelry", "Accessories", "Dresses", "Blouses", "Women's Sneakers"]
+      },
+      {
+        "name": "His",
+        "subcategories": ["Men's Clothing", "Men's Shoes", "Men's Underwear", "Men's Watches", "Men's Jewelry", "Accessories", "T-shirts", "Hoodies", "Sport Shoes"]
+      },
+      {
+        "name": "Kids",
+        "subcategories": ["Kids' Clothing", "Kids' Shoes", "Baby Clothing", "Kids' Underwear", "Kids sneakers", "Kids' Trousers", "Kindergarten Shoes", "Transitional Kids Jackets", "Kids' tracksuits"]
+      },
+      {
+        "name": "Sneakers",
+        "subcategories": ["Nike Air Vapormax Plus", "Nike Air Force 1", "Yeezy", "Nike Air Max 90"]
+      },
+      {
+        "name": "Trends",
+        "subcategories": ["Suitcases", "Pants", "Casio Vintage", "Earrings"]
+      }
+    ]
+  },
+  {
+    "lineOfBusiness":"Home and Garden",
+    "productLine": [
+      {
+        "name": "Furnishings",
+        "subcategories": ["Decorations and ornaments", "Holiday and special occasion decorations", "Carpets and rugs", "Bedding and blankets", "Funny Gadgets", "Pots and pans", "Tableware", "Kitchen utensils", "Window decoration"]
+      },
+      {
+        "name": "Tools",
+        "subcategories": ["Electric screwdrivers", "Saws and chainsaws", "Polishers and grinders", "Welders", "Hammer drills", "Industrial vacuum cleaners", "Measuring instruments", "Accessories and fittings", "Cleaning devices"]
+      },
+      {
+        "name": "Lightning",
+        "subcategories": ["Pendant Lamps", "Halogen and Floodlights", "Light Sources", "Luminaries"]
+      },
+      {
+        "name": "Furniture",
+        "subcategories": ["Living room furniture", "Bedroom furniture", "Kitchen furniture", "Bathroom and toilet furniture"]
+      },
+      {
+        "name": "Construction",
+        "subcategories": ["Heating", "Plumbing and accessories", "Electricity and accessories", "Walls and facades"]
+      },
+      {
+        "name": "Garden",
+        "subcategories": ["Fertilizers and chemicals","Animal repellents", "Trees and shrubs", "Petrol lawn mowers" ]
+      }
+    ]
+  },
+  {
+    "lineOfBusiness":"Supermarket",
+    "productLine": [
+      {
+        "name": "Groceries",
+        "subcategories": ["Coffees", "Teas", "Yerba Mate", "Healthy foods", "Dried Fruit, nuts, seeds", "Cake decorating supplies", "Dry goods", "Olive oil, vegetable oil, vinegar", "Olive oil"]
+      },
+      {
+        "name": "Pet supplies",
+        "subcategories": ["Dogs","Cats", "Fish-keeping and other", "Rodents and rabbits", "Reptiles and amphibians", "Birds", "Dog food", "Cat food", "Dog beds and baskets"]
+      },
+      {
+        "name": "Household Essentials",
+        "subcategories": ["Washing Powder", "Washing lines", "Ironing Boards", "Kitchen soaps", "Waste bins", "Mops", "Dishwasher tablets", "Cleaning Products", "Fabric conditioner"]
+      },
+      {
+        "name": "Popular",
+        "subcategories": ["Coffee beans", "Pasta", "Flour", "Dish drainers", "Bin bags", "Air freshener", "Cat litter", "Cat litter trays", "Aquarium filters"]
+      }
+    ]
+  },
+  {
+    "lineOfBusiness": "Kids",
+    "productLine": [
+      {
+        "name": "Toys",
+        "subcategories": ["LEGO bricks", "Dolls and accessories", "Toys for babies", "Educational toys"]
+      },
+      {
+        "name": "Events, Parties",
+        "subcategories": ["Balloons", "Kids Costumes", "Pinatas", "Invitations"]
+      },
+      {
+        "name": "Health and Hygiene",
+        "subcategories": ["Diapers and Wipes", "Hygiene", "Bathtubs and Bathing Accessories", "Changing Tables"]
+      },
+      {
+        "name": "Prams",
+        "subcategories": ["Multifunctional prams", "Pushchairs", "Twin prams", "Pram accessories"]
+      },
+      {
+        "name": "School Supplies",
+        "subcategories": ["School Backpacks", "Pencil Cases", "Preschool Backpacks", "Notebooks"]
+      },
+      {
+        "name": "Feeding",
+        "subcategories": ["Bottles and Accessories", "High Chairs", "Bibs", "Baby Foods"]
+      }
+    ]
+  },
+  {
+    "lineOfBusiness":"Beauty",
+    "productLine": [
+      {
+        "name": "Skin care products",
+        "subcategories": ["Face cream", "Face masks", "Cleansers and make-up removers", "Sun protection & tanning", "Shampoos", "Hair coloring products", "Bath and shower", "Shaving and hair removal", "Beard and mustache care"]
+      },
+      {
+        "name": "Manicure and pedicure",
+        "subcategories": ["Hybrid nail polish", "UV LED lamps for nails", "Accessories and tools", "Acrylics and gels nail polish", "Nail conditioners", "Nail polish", "Hybrid kits"]
+      },
+      {
+        "name": "Make-up",
+        "subcategories": ["Eye make-up", "Face make-up", "Lip make-up", "Mascara" , "Foundation", "BB creams", "Make-up brushes", "False eyelashes", "Make-up palettes"]
+      },
+      {
+        "name": "Perfume",
+        "subcategories": ["Women's fragrances", "Men's fragrances", "Men's Eau de Toilette", "Fragrance sets"]
+      },
+      {
+        "name": "Showroom equipment",
+        "subcategories": ["Hair Salons", "Beauty Salons", "Indoor tanning"]
+      }
+    ]
+  },
+  {
+    "lineOfBusiness": "Health",
+    "productLine": [
+      {
+        "name": "Health care",
+        "subcategories": ["Dietary Supplements", "OTC Medication", "Food Supplements", "Bandages & Bandaging Supplies"]
+      },
+      {
+        "name": "Oral care",
+        "subcategories": ["Powdered Toothbrushes", "Toothbrush Replacement Heads", "Oral irrigators", "Toothpaste"]
+      },
+      {
+        "name": "Medical Devices",
+        "subcategories": ["Blood Pressure Monitors", "Inhalers", "Thermometers", "Pulse oximeters"]
+      },
+      {
+        "name": "Alternative Medicine",
+        "subcategories": ["Hemp products", "Medicinal herbs", "Essential oils", "Ointments and natural creams"]
+      },
+      {
+        "name": "Personal care",
+        "subcategories": ["Personal hygiene", "Intimate hygiene", "Sanitary napkins", "Incontinence products"]
+      }
+    ]
+  },
+  {
+    "lineOfBusiness": "Culture and Entertainment",
+    "productLine": [
+      {
+        "name": "Books and Comics",
+        "subcategories": ["Biographies", "Fantasy", "Crime, Sensation, Thriller", "Children's Books", "Foreign Language Books", "Science and Popular Science Books", "Textbooks", "Self-help Books and Albums", "Cookbooks"]
+      },
+      {
+        "name": "Games",
+        "subcategories": ["PC games", "Console Games", "PS5 Video Games", "Xbox Series X Video Games", "PS4 Video Games", "Xbox One Video Games", "Board games", "Card games", "Strategy Games", "MMO online games"]
+      },
+      {
+        "name": "Codes and Vouchers",
+        "subcategories": ["Game codes", "Music", "Gift Cards", "Online Payments"]
+      },
+      {
+        "name": "Video",
+        "subcategories": ["DVD Movies", "Blu-ray Movies", "Movie gadgets", "Films for children"]
+      }
+    ]
+  },
+  {
+    "lineOfBusiness": "Sports and Travel",
+    "productLine": [
+      {
+        "name": "Bikes and Accessories",
+        "subcategories": ["Bikes", "Bike's parts", "Bike's helmets", "Bike's clothing"]
+      },
+      {
+        "name": "Outdoor sports",
+        "subcategories": ["Flashlights", "Suitcase & Travel Bags", "Outdoor Cooking", "Travel Mugs"]
+      },
+      {
+        "name": "Gym and Fitness",
+        "subcategories": ["Supplements and Nutrients", "Fitness","Gym", "Protein Nutrients"]
+      },
+      {
+        "name": "Fishing",
+        "subcategories": ["Fishing accessories", "Fishing Rods", "Fishing Reels", "Fishing Lures"]
+      },
+      {
+        "name": "Running",
+        "subcategories": ["Running clothing", "Running shoes", "Running headphones", "Running cases and armbands"]
+      },
+      {
+        "name": "Military",
+        "subcategories": ["Air Guns", "ASG", "Self-defence", "Hunting optics"]
+      }
+    ]
+  },
+  {
+    "lineOfBusiness": "Automotive",
+    "productLine": [
+      {
+        "name": "Car Parts",
+        "subcategories": ["Body parts", "Lightning and reflectors", "Engine and equipment", "Electrical System and batteries", "Brake system", "Suspension system", "Exhaust system", "Cooling system", "Interior equipment"]
+      },
+      {
+        "name": "Car Accessories",
+        "subcategories": ["Racks", "Car floor mats", "Car electronics", "Tuning accessories"]
+      },
+      {
+        "name": "Workshop",
+        "subcategories": ["Wrenches", "Diagnostic tools", "Bodywork and varnishing", "Workshop equipment"]
+      },
+      {
+        "name": "Car chemicals",
+        "subcategories": ["Engine oil", "Body washing and care", "Operating fluids", "Body and paint chemistry"]
+      },
+      {
+        "name": "Tires and rims",
+        "subcategories": ["Passenger car tires", "Aluminium and steel rims", "Wheels(rims with tires)"]
+      },
+      {
+        "name": "For motorbikes",
+        "subcategories": ["Motorcycle parts", "Motorbike helmets", "Motorbike clothing", "Motorbike racks"]
+      },
+      {
+        "name": "Machine spare parts",
+        "subcategories": ["Spare parts for agricultural machines", "Spare parts for construction machinery", "Parts for other vehicles"]
+      }
+    ]
+  },
+  {
+    "lineOfBusiness": "Collections and Art",
+    "productLine": [
+      {
+        "name": "Design and Antiques",
+        "subcategories": ["Furniture", "Porcelain", "Pottery", "Glass", "Silver", "Jewelry", "Clocks, watches", "Technology", "Second-Hand Books"]
+      },
+      {
+        "name": "Collections",
+        "subcategories": ["Numismatics", "Philately", "Collectable militaria", "Model Building", "Treasure Hunting", "Soviet Memorabilia", "Banknotes", "Flags and National Symbols"]
+      },
+      {
+        "name": "Hobby and Handmade",
+        "subcategories": ["Art Supplies", "Jewelry making", "Sewing", "Knitting", "Decoupage", "Scrapbooking", "Candles", "Cards and Invitation"]
+      },
+      {
+        "name": "Investment Products",
+        "subcategories": ["Gold", "Silver", "Platinum"]
+      },
+      {
+        "name": "Art",
+        "subcategories": ["Painting", "Sculpture", "Graphics", "Photography", "Posters"]
+      }
+    ]
+  },
+  {
+    "lineOfBusiness": "Business and Services",
+    "productLine": [
+      {
+        "name": "Office and advertising",
+        "subcategories": ["Office furniture", "Shredders", "Laminators and accessories", "Safes", "Office paper", "Boxes and cartons", "Packaging tapes", "Bubble wrap", "Envelopes", "Ephemera", "Outdoor advertising", "Corporate gifts", "Office chairs", "Magnetic whiteboards", "Stationer"]
+      },
+      {
+        "name": "Industry",
+        "subcategories": ["Machinery and equipment", "Warehouse shelving", "Construction", "Welding", "Workwear and protective clothing", "Preservative products", "Materials and accessories", "Wholesale offers", "Paints", "Store scales", "Packaging equipment and accessories", "Pallet trucks", "Baskets and carts", "Catering equipment", "Neodymium magnets", "Recycling and waste disposal", "Saws and cutting machines", "Splitters"]
+      }
+    ]
+  }
+]

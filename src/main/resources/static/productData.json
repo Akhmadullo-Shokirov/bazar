@@ -1,0 +1,37 @@
+[{
+  // owner id needs to be here
+  "id": 14,
+  "display_name": 'Non-Alcoholic Concentrated Perfume Oil', // to be changed to displayName
+  "product_description": {"title": "Mushkambar", "images":{}}// 'Original Al Munakh® by Mahal Al Musk | Our Impression of Climate | 6ml Non-Alcoholic Concentrated Perfume Oil', // to be changed to description
+  "price": 120,
+  "discountPercentage": 15.6,
+  "rating": 4.21,
+  "stock": 114, // to be left untouched
+  "company": 'Al Munakh',
+  "category": 'fragrances', // subcategory
+  "inCart": false, /* To be discussed*/
+  "count": 0, // to be deleted
+  "total": 2, // to be deleted
+  "thumbnail": 'https://dummyjson.com/image/i/products/14/thumbnail.jpg', // to be deleted
+  "images": [
+    { "id": 1, "address": 'https://dummyjson.com/image/i/products/14/1.jpg' },
+    { "id": 2, "address": 'https://dummyjson.com/image/i/products/14/2.jpg' },
+    { "id": 3, "address": 'https://dummyjson.com/image/i/products/14/3.jpg' },
+    {"id": 4, "address": 'https://dummyjson.com/image/i/products/14/thumbnail.jpg',
+    }
+  ]
+},
+
+// product json for post requst
+{
+  "display_name" : "some display name",
+  "price": "120",
+  "left_in_stock": "5",
+  "owner_id": "12j32-3213u-2jo33-21321",
+  "sub_category_id" : "123",
+  "rating_id" : "12j32-3213u-2jo33-21321",
+  "product_description_id": "12j32-3213u-2jo33-21321",
+
+}
+
+]
