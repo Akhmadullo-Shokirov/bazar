@@ -46,6 +46,7 @@ public class UserService {
         // TODO phoneNumber verification
         userToSave.setPhoneNumber(userWrapper.getPhoneNumber());
         // TODO password encription and save
+        userToSave.setPassword(userWrapper.getPassword());
 
         String savedUserId = userRepository.save(userToSave).getId();
 

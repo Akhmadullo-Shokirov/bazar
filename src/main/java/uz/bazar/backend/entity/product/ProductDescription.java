@@ -15,6 +15,7 @@ public class ProductDescription {
     @GenericGenerator(name="uuid", strategy = "uuid2")
     private String id;
     private String title;
+    @Lob
     private String descriptionText;
     @OneToOne
     private Product product;
