@@ -15,6 +15,7 @@ public class ProductDescription {
     @GenericGenerator(name="uuid", strategy = "uuid2")
     private String id;
     private String title;
+
     @Lob
     private String descriptionText;
     @OneToOne
@@ -42,6 +43,10 @@ public class ProductDescription {
         this.descriptionText = descriptionText;
     }
 
+    public String getDescriptionText() {
+        return descriptionText;
+    }
+
     public void setProduct(Product product) {
         this.product = product;
     }
@@ -52,6 +57,8 @@ public class ProductDescription {
         }
         productPhotos.add(productPhoto);
     }
+
+
 
     public List<String> getProductPhotos() {
         return productPhotos.stream().map(productPhoto-> productPhoto.getId()).collect(Collectors.toList());

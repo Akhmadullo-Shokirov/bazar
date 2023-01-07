@@ -43,10 +43,9 @@ public class UserService {
         userToSave.setUsername(userWrapper.getUsername());
         // TODO email verification
         userToSave.setEmail(userWrapper.getEmail());
-        // TODO phoneNumber verification
+        // TODO phoneNumber verification - maybe to be delayed
         userToSave.setPhoneNumber(userWrapper.getPhoneNumber());
         // TODO password encription and save
-        userToSave.setPassword(userWrapper.getPassword());
 
         String savedUserId = userRepository.save(userToSave).getId();
 

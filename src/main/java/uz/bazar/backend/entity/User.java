@@ -1,7 +1,6 @@
 package uz.bazar.backend.entity;
 
 import org.hibernate.annotations.GenericGenerator;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Component;
 import uz.bazar.backend.entity.product.Product;
 
@@ -24,7 +23,6 @@ public class User {
     private String username;
     private String email;
     private String phoneNumber;
-    private String password;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private List<Rating> ratings;
@@ -93,17 +91,6 @@ public class User {
 
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-
-        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-
-        this.password = passwordEncoder.encode(password);
     }
 
     public List<String> getProductsInCart() {
