@@ -37,6 +37,12 @@ public class UserService {
     }
 
     public String save(UserWrapper userWrapper){
+        if (checkIfEmailExist(userWrapper.getEmail())) {
+            return "This email address already exists";
+        } else if (checkIfUsernameExist(userWrapper.getUsername())) {
+            return "This username already exists";
+        }
+
         User userToSave = new User();
         userToSave.setFirstName(userWrapper.getFirstName());
         userToSave.setLastName(userWrapper.getLastName());
@@ -48,9 +54,14 @@ public class UserService {
         // TODO password encryption and save
         userToSave.setPassword(userWrapper.getPassword());
 
-        String savedUserId = userRepository.save(userToSave).getId();
+        return userRepository.save(userToSave).getId();
+    }
 
-        return savedUserId;
+    public boolean checkIfEmailExist(String email) {
+        return userRepository.findByEmail(email) != null;
+    }
 
+    public boolean checkIfUsernameExist(String username) {
+        return userRepository.findByUsername(username) != null;
     }
 }

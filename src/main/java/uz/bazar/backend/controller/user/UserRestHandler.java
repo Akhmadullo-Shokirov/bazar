@@ -22,6 +22,6 @@ public class UserRestHandler {
     }
     @PostMapping("/login")
     public boolean login(@RequestBody UserValidationService.LoginUserWrapper loginUserWrapper) {
-        return userValidationService.isPasswordValid(loginUserWrapper);
+        return userValidationService.isUsernameAndPasswordValid(loginUserWrapper);
     }
 }
