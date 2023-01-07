@@ -2,11 +2,8 @@ package uz.bazar.backend.controller.user;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import uz.bazar.backend.entity.User;
-import uz.bazar.backend.repository.user.UserRepository;
 import uz.bazar.backend.service.user.UserService;
-
-import java.util.List;
+import uz.bazar.backend.service.user.UserValidationService;
 
 @RestController
 @RequestMapping("/user")
@@ -16,8 +13,15 @@ public class UserRestHandler {
     @Autowired
     UserService userService;
 
+    @Autowired
+    UserValidationService userValidationService;
+
     @PostMapping("/add")
     public String save(@RequestBody UserService.UserWrapper userWrapper){
         return userService.save(userWrapper);
+    }
+    @PostMapping("/login")
+    public boolean login(@RequestBody UserValidationService.LoginUserWrapper loginUserWrapper) {
+        return userValidationService.isPasswordValid(loginUserWrapper);
     }
 }
