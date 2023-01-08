@@ -10,6 +10,7 @@ public interface UserRepository extends CrudRepository<User,String> {
     String findByEmail(String email);
 
     @Query(value = "SELECT id FROM test.user username WHERE username = ?1", nativeQuery = true)
-    String findByUsername(String email);
-
+    String findByUsername(String username);
+    @Query(value = "SELECT * FROM test.user u WHERE u.verification_code = ?1", nativeQuery = true)
+    User findByVerificationCode(String code);
 }

@@ -32,7 +32,7 @@ public class UserValidationService {
         return false;
     }
 
-    public String isUsernameOrEmailExist(String loginUsernameOrEmail) {
+    private String isUsernameOrEmailExist(String loginUsernameOrEmail) {
         String userId;
         //        Checks whether login input is username or email
         if (checkForUsernameOrEmail(loginUsernameOrEmail).equals("email")) {
@@ -43,17 +43,31 @@ public class UserValidationService {
         return userId;
     }
 
-    public boolean isPasswordValid(String loginPassword, String userId) {
+    private boolean isPasswordValid(String loginPassword, String userId) {
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         User userToCheck = userRepository.findById(userId).get();
         return passwordEncoder.matches(loginPassword, userToCheck.getPassword());
     }
 
-    public String checkForUsernameOrEmail(String usernameOrEmail) {
+    private String checkForUsernameOrEmail(String usernameOrEmail) {
         if (usernameOrEmail.contains("@")) return "email";
 
         return "username";
     }
 
+    public boolean verifyUser(String verificationCode) {
+        User unverifiedUser = userRepository.findByVerificationCode(verificationCode);
 
+        if (unverifiedUser == null || unverifiedUser.isActive()) {
+            System.out.println("This user doesn't exist or already verified");
+            return false;
+        } else {
+//              User is verified, account active status will be set to TRUE
+            unverifiedUser.setVerificationCode(null);
+            unverifiedUser.setActive(true);
+            userRepository.save(unverifiedUser);
+            System.out.println("User is verified: " + unverifiedUser.getFirstName());
+            return true;
+        }
+    }
 }
