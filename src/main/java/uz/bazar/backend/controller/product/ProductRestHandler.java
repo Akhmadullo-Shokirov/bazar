@@ -41,33 +41,6 @@ public class ProductRestHandler {
     public List<Product> getProductsByCategoryId(@PathVariable("subcategoryId") Long subcategoryId){
         return productService.getProductsByCategoryId(subcategoryId);
     }
-
-//    @PostMapping("/upload")
-//    public String uploadFile(@RequestParam("file") MultipartFile file){
-//        String fileName = StringUtils.cleanPath(file.getOriginalFilename());
-//        try{
-//            if(fileName.contains("..")){
-//                throw new Exception("File name contains invalid path sequence" + fileName);
-//            }
-//            ProductPhoto productPhoto = new ProductPhoto(fileName,file.getContentType(), file.getBytes());
-//            productPhotoRepository.save(productPhoto);
-//        }catch(Exception e){
-//
-//        }
-//
-//        return "ok";
-//    }
-
-//    @GetMapping("/download/{fileId}")
-//    public ResponseEntity<Resource> downloadFile(@PathVariable("fileId") String fileId){
-//        ProductPhoto productPhoto = productPhotoRepository.getReferenceById(fileId);
-//
-//        return ResponseEntity.ok()
-//                .contentType(MediaType.parseMediaType(productPhoto.getFileType()))
-//                .header(HttpHeaders.CONTENT_DISPOSITION,
-//                        "attachment; filename=\"" + productPhoto.getFileName()+"\"")
-//                .body(new ByteArrayResource(productPhoto.getData()));
-//    }
 }
 
 

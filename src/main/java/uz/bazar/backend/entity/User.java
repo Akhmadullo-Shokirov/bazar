@@ -103,6 +103,13 @@ public class User {
         }
         this.productsInCart.addAll(productsInCart);
     }
+
+    public void setProductsInCart(Product product) {
+        if(this.productsInCart == null){
+            productsInCart = new ArrayList<>();
+        }
+        this.productsInCart.add(product);
+    }
     // this will return ID of products
     public List<String> getProductsUserIsSelling() {
         return productsUserIsSelling.stream().map(product->product.getId()).collect(Collectors.toList());
