@@ -20,4 +20,15 @@ public class UserRestHandler {
     public String save(@RequestBody UserService.UserWrapper userWrapper){
         return userService.save(userWrapper);
     }
+
+    @GetMapping("/{userId}")
+    public User getUser(@PathVariable("userId") String userId){
+        return userService.getUser(userId);
+    }
+
+    @PutMapping("/to_cart/add/{userId}/{productId}")
+    public String addProductToCart(@PathVariable("userId") String userId, @PathVariable("productId") String productId){
+        String response =  userService.addProductToCart(userId, productId);
+        return response.isEmpty()?"Error":response;
+    }
 }
