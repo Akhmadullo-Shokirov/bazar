@@ -8,11 +8,14 @@ import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import uz.bazar.backend.entity.User;
+import uz.bazar.backend.entity.product.Product;
+import uz.bazar.backend.repository.product.ProductRepository;
 import uz.bazar.backend.repository.user.UserRepository;
 
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
 import java.io.UnsupportedEncodingException;
+import java.util.Optional;
 
 
 /*
@@ -31,6 +34,9 @@ public class UserService {
     UserRepository userRepository;
     @Autowired
     JavaMailSender mailSender;
+
+    @Autowired
+    ProductRepository productRepository;
 
     @AllArgsConstructor
     @NoArgsConstructor
@@ -59,7 +65,7 @@ public class UserService {
         userToSave.setUsername(userWrapper.getUsername());
         // TODO email verification
         userToSave.setEmail(userWrapper.getEmail());
-        // TODO phoneNumber verification
+        // TODO phoneNumber verification - maybe to be delayed
         userToSave.setPhoneNumber(userWrapper.getPhoneNumber());
         // TODO password encryption and save -> DONE
         userToSave.setPassword(passwordEncoder.encode(userWrapper.getPassword()));
@@ -105,5 +111,32 @@ public class UserService {
 
     private boolean checkIfUsernameExist(String username) {
         return userRepository.findByUsername(username) != null;
+    }
+
+    public String addProductToCart(String userId, String productId){
+        Optional<User> optionalUser= userRepository.findById(userId);
+        User user = optionalUser.isPresent()?optionalUser.get():null;
+
+        if(user != null){
+            Optional<Product> optionalProduct =  productRepository.findById(productId);
+            if(optionalProduct.isPresent()){
+                user.setProductsInCart(optionalProduct.get());
+                userRepository.save(user);
+                return userId;
+            }else{
+                return "";
+            }
+        }else{
+            return "";
+        }
+    }
+
+    public User getUser(String userId){
+        Optional<User> optionalUser = userRepository.findById(userId);
+
+        if(optionalUser.isPresent()){
+            return optionalUser.get();
+        }
+        return null;
     }
 }

@@ -26,6 +26,7 @@ public class User {
     private String password;
     private String verificationCode;
     private boolean active;
+
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private List<Rating> ratings;
 
@@ -94,7 +95,7 @@ public class User {
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
-
+    
     public String getPassword() {
         return password;
     }
@@ -128,6 +129,13 @@ public class User {
             productsInCart = new ArrayList<>();
         }
         this.productsInCart.addAll(productsInCart);
+    }
+
+    public void setProductsInCart(Product product) {
+        if(this.productsInCart == null){
+            productsInCart = new ArrayList<>();
+        }
+        this.productsInCart.add(product);
     }
     // this will return ID of products
     public List<String> getProductsUserIsSelling() {

@@ -25,6 +25,7 @@ public class UserRestHandler {
     public String save(@RequestBody UserService.UserWrapper userWrapper) throws MessagingException, UnsupportedEncodingException {
         return userService.save(userWrapper);
     }
+    
     @PostMapping("/login")
     public boolean login(@RequestBody UserValidationService.LoginUserWrapper loginUserWrapper) {
         return userValidationService.isUsernameAndPasswordValid(loginUserWrapper);
@@ -33,5 +34,15 @@ public class UserRestHandler {
     public boolean verify(@RequestParam("code") String verificationCode) {
         System.out.println("THE VERIFICATION CODE: " + verificationCode);
         return userValidationService.verifyUser(verificationCode);
+
+    @GetMapping("/{userId}")
+    public User getUser(@PathVariable("userId") String userId){
+        return userService.getUser(userId);
+    }
+
+    @PutMapping("/to_cart/add/{userId}/{productId}")
+    public String addProductToCart(@PathVariable("userId") String userId, @PathVariable("productId") String productId){
+        String response =  userService.addProductToCart(userId, productId);
+        return response.isEmpty()?"Error":response;
     }
 }

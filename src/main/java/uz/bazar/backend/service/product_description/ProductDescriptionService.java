@@ -37,6 +37,7 @@ public class ProductDescriptionService {
 
         for(MultipartFile image: images){
             String fileName = StringUtils.cleanPath(image.getOriginalFilename());
+            System.out.println(fileName);
             try{
                 if(fileName.contains("..")){
                     throw new Exception("File name contains invalid path sequence" + fileName);
@@ -50,11 +51,19 @@ public class ProductDescriptionService {
 
         }
         productDescriptionRepository.save(productDescription);
+
+        System.out.println("Product image ids: " + productDescription.getProductPhotos());
         return savedProductDescriptionId;
     }
 
     public ProductPhoto getSingleProductPhoto(String productDescriptionId){
+
         ProductDescription productDescription = productDescriptionRepository.getReferenceById(productDescriptionId);
+        System.out.println("product description photo" + productDescription.getProductPhotos().get(0));
         return productPhotoRepository.getReferenceById(productDescription.getProductPhotos().get(0));
+    }
+
+    public ProductDescription getSingleProductDescription(String productDescriptionId) {
+        return productDescriptionRepository.findById(productDescriptionId).get();
     }
 }

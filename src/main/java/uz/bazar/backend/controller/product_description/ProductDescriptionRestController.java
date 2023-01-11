@@ -27,6 +27,12 @@ public class ProductDescriptionRestController {
     }
 
     @CrossOrigin
+    @GetMapping("/{productDescriptionId}")
+    public ProductDescription getProductDescription(@PathVariable("productDescriptionId") String productDescriptionId){
+        return productDescriptionService.getSingleProductDescription(productDescriptionId);
+    }
+
+    @CrossOrigin
     @GetMapping("/photo/{productDescriptionId}")
     public ResponseEntity<Resource>  getSinglePhotoOfProduct(@PathVariable("productDescriptionId") String productDescriptionId){
         ProductPhoto productPhoto  = productDescriptionService.getSingleProductPhoto(productDescriptionId);
@@ -36,5 +42,7 @@ public class ProductDescriptionRestController {
                         "attachment; filename=\"" + productPhoto.getFileName()+"\"")
                 .body(new ByteArrayResource(productPhoto.getData()));
     }
+
+
 
 }
