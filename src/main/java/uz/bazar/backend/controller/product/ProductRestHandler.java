@@ -16,10 +16,6 @@ public class ProductRestHandler {
     @Autowired
     ProductService productService;
 
-    // TODO to be deleted written just for test
-    @Autowired
-    ProductPhotoRepository productPhotoRepository;
-
     @GetMapping("/{productId}")
     public Product getProductById(@PathVariable String productId){
         return productService.getById(productId);
@@ -32,7 +28,6 @@ public class ProductRestHandler {
 
     @PostMapping("/add")
     public String uploadProduct(@RequestBody ProductService.ProductWrapper product){
-        System.out.println("Response:" + product);
         String savedProductId =  productService.save(product);
         return savedProductId;
     }

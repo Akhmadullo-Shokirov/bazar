@@ -16,6 +16,8 @@ import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
 import java.io.UnsupportedEncodingException;
 import java.util.Optional;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 
 /*
@@ -30,6 +32,7 @@ import java.util.Optional;
 @Service
 public class UserService {
 
+    private final Logger logger = LoggerFactory.getLogger(this.getClass());
     @Autowired
     UserRepository userRepository;
     @Autowired
@@ -122,13 +125,31 @@ public class UserService {
             if(optionalProduct.isPresent()){
                 user.setProductsInCart(optionalProduct.get());
                 userRepository.save(user);
-                return userId;
-            }else{
+                return user.getId();
+            }
+        }
+        return "";
+    }
+
+    public String removeProductFromCart(String userId, String productId){
+        Optional<User> optionalUser= userRepository.findById(userId);
+        logger.info("User id" + userId);
+        logger.info("Product Id" + productId);
+        User user = optionalUser.isPresent()?optionalUser.get():null;
+        if(user != null){
+            Optional<Product> optionalProduct = productRepository.findById(productId);
+            if(optionalProduct.isPresent()){
+                boolean successfulRemoval = user.removeProductFromProductsInCart(optionalProduct.get());
+                if(successfulRemoval){
+                    userRepository.save(user);
+                    return user.getId();
+                }
+                logger.warn("Removing the product from the list of Cart products failed. This can be either because user did not have this product in their cart list...");
                 return "";
             }
-        }else{
-            return "";
         }
+        logger.warn("Removing the product from the list of Cart products failed.");
+        return "";
     }
 
     public User getUser(String userId){

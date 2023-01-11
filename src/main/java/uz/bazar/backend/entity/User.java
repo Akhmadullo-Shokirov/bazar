@@ -137,6 +137,15 @@ public class User {
         }
         this.productsInCart.add(product);
     }
+
+    public boolean removeProductFromProductsInCart(Product product){
+        if(this.productsInCart == null) return false;
+
+        if(!this.productsInCart.contains(product)) return false;
+
+        this.productsInCart.remove(product);
+        return true;
+    }
     // this will return ID of products
     public List<String> getProductsUserIsSelling() {
         return productsUserIsSelling.stream().map(product->product.getId()).collect(Collectors.toList());
