@@ -34,6 +34,7 @@ public class UserRestHandler {
     @PostMapping("/login")
     public boolean login(@RequestHeader(HttpHeaders.AUTHORIZATION) String postRequestToken,
                          @RequestBody UserValidationService.LoginUserWrapper loginUserWrapper) {
+        System.out.println("Post Request token: " + postRequestToken);
         if (tokenValidationService.verifyToken(postRequestToken.substring(7))) {
             return userValidationService.isUsernameAndPasswordValid(loginUserWrapper);
         }
