@@ -26,7 +26,8 @@ public class UserRestHandler {
     APITokenValidationService tokenValidationService;
 
     @PostMapping("/add")
-    public String save(@RequestBody UserService.UserWrapper userWrapper) throws MessagingException, UnsupportedEncodingException {
+    public String save(@RequestBody UserService.UserWrapper userWrapper) throws MessagingException,
+            UnsupportedEncodingException {
         tokenValidationService.generateToken("frontend token");
         return userService.save(userWrapper);
     }
