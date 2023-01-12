@@ -1,13 +1,14 @@
 package uz.bazar.backend.controller.user;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.repository.query.Param;
+import org.springframework.http.HttpHeaders;
 import org.springframework.web.bind.annotation.*;
+import uz.bazar.backend.entity.User;
+import uz.bazar.backend.service.token.APITokenValidationService;
 import uz.bazar.backend.service.user.UserService;
 import uz.bazar.backend.service.user.UserValidationService;
 
 import javax.mail.MessagingException;
-import javax.servlet.http.HttpServletRequest;
 import java.io.UnsupportedEncodingException;
 
 @RestController
@@ -21,20 +22,30 @@ public class UserRestHandler {
     @Autowired
     UserValidationService userValidationService;
 
-    @PostMapping("/add")
+    @Autowired
+    APITokenValidationService tokenValidationService;
 
+    @PostMapping("/add")
     public String save(@RequestBody UserService.UserWrapper userWrapper) throws MessagingException, UnsupportedEncodingException {
+        tokenValidationService.generateToken("frontend token");
         return userService.save(userWrapper);
     }
     
     @PostMapping("/login")
-    public boolean login(@RequestBody UserValidationService.LoginUserWrapper loginUserWrapper) {
-        return userValidationService.isUsernameAndPasswordValid(loginUserWrapper);
+    public boolean login(@RequestHeader(HttpHeaders.AUTHORIZATION) String postRequestToken,
+                         @RequestBody UserValidationService.LoginUserWrapper loginUserWrapper) {
+        if (tokenValidationService.verifyToken(postRequestToken.substring(7))) {
+            return userValidationService.isUsernameAndPasswordValid(loginUserWrapper);
+        }
+
+        return false;
     }
+
     @GetMapping("/verify")
     public boolean verify(@RequestParam("code") String verificationCode) {
         System.out.println("THE VERIFICATION CODE: " + verificationCode);
         return userValidationService.verifyUser(verificationCode);
+    }
 
     @GetMapping("/{userId}")
     public User getUser(@PathVariable("userId") String userId) {
