@@ -29,7 +29,7 @@ public class UserValidationService {
         String userId = isUsernameOrEmailExist(loginUsernameOrEmail);
         if (userId != null) return isPasswordValid(loginUserPassword, userId);
 
-        return null;
+        return "";
     }
 
     private String isUsernameOrEmailExist(String loginUsernameOrEmail) {
@@ -49,7 +49,7 @@ public class UserValidationService {
         if(passwordEncoder.matches(loginPassword, userToCheck.getPassword()))
             return userId;
 
-        return null;
+        return "";
     }
 
     private String checkForUsernameOrEmail(String usernameOrEmail) {
