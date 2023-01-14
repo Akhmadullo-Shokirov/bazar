@@ -33,10 +33,9 @@ public class UserRestHandler {
     }
     
     @PostMapping("/login")
-    public boolean login(@RequestHeader(HttpHeaders.AUTHORIZATION) String postRequestToken,
+    public boolean login(@RequestHeader(HttpHeaders.AUTHORIZATION) String requestToken,
                          @RequestBody UserValidationService.LoginUserWrapper loginUserWrapper) {
-        System.out.println("Post Request token: " + postRequestToken);
-        if (tokenValidationService.verifyToken(postRequestToken.substring(7))) {
+        if (tokenValidationService.verifyToken(requestToken.substring(7))) {
             return userValidationService.isUsernameAndPasswordValid(loginUserWrapper);
         }
 
@@ -45,7 +44,6 @@ public class UserRestHandler {
 
     @GetMapping("/verify")
     public boolean verify(@RequestParam("code") String verificationCode) {
-        System.out.println("THE VERIFICATION CODE: " + verificationCode);
         return userValidationService.verifyUser(verificationCode);
     }
 

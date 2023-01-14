@@ -6,6 +6,6 @@ import uz.bazar.backend.entity.Token;
 
 public interface TokenRepository extends CrudRepository<Token, String> {
 
-    @Query(value = "SELECT * FROM test.token t WHERE t.value = ?1", nativeQuery = true)
+    @Query(value = "SELECT * FROM token WHERE value = ?1", nativeQuery = true)
     Token findByTokenValue(String requestTokenValue);
 }
