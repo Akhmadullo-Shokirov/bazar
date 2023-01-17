@@ -23,13 +23,13 @@ public class UserValidationService {
         private String password;
     }
 
-    public boolean isUsernameAndPasswordValid(LoginUserWrapper loginUserWrapper) {
+    public String isUsernameAndPasswordValid(LoginUserWrapper loginUserWrapper) {
         String loginUsernameOrEmail = loginUserWrapper.getUsernameOrEmail();
         String loginUserPassword = loginUserWrapper.getPassword();
         String userId = isUsernameOrEmailExist(loginUsernameOrEmail);
         if (userId != null) return isPasswordValid(loginUserPassword, userId);
 
-        return false;
+        return "There's no account with username or email";
     }
 
     private String isUsernameOrEmailExist(String loginUsernameOrEmail) {
@@ -43,10 +43,13 @@ public class UserValidationService {
         return userId;
     }
 
-    private boolean isPasswordValid(String loginPassword, String userId) {
+    private String isPasswordValid(String loginPassword, String userId) {
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         User userToCheck = userRepository.findById(userId).get();
-        return passwordEncoder.matches(loginPassword, userToCheck.getPassword());
+        if(passwordEncoder.matches(loginPassword, userToCheck.getPassword()))
+            return userId;
+
+        return "Username/email address or password is incorrect";
     }
 
     private String checkForUsernameOrEmail(String usernameOrEmail) {

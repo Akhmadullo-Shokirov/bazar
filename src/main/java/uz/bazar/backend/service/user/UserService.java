@@ -56,7 +56,7 @@ public class UserService {
         userToSave.setFirstName(userWrapper.getFirstName());
         userToSave.setLastName(userWrapper.getLastName());
         userToSave.setUsername(userWrapper.getUsername());
-        // TODO email verification
+        // TODO email verification -> DONE
         userToSave.setEmail(userWrapper.getEmail());
         // TODO phoneNumber verification - maybe to be delayed
         userToSave.setPhoneNumber(userWrapper.getPhoneNumber());

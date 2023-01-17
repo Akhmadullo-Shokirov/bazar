@@ -5,6 +5,8 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.web.bind.annotation.*;
 import uz.bazar.backend.entity.User;
 import uz.bazar.backend.service.token.APITokenValidationService;
+import org.springframework.web.bind.annotation.*;
+import uz.bazar.backend.entity.User;
 import uz.bazar.backend.service.user.UserService;
 import uz.bazar.backend.service.user.UserValidationService;
 
