@@ -1,6 +1,10 @@
 package uz.bazar.backend.controller.user;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
+import org.springframework.web.bind.annotation.*;
+import uz.bazar.backend.entity.User;
+import uz.bazar.backend.service.token.APITokenValidationService;
 import org.springframework.web.bind.annotation.*;
 import uz.bazar.backend.entity.User;
 import uz.bazar.backend.service.user.UserService;
@@ -20,18 +24,28 @@ public class UserRestHandler {
     @Autowired
     UserValidationService userValidationService;
 
+    @Autowired
+    APITokenValidationService tokenValidationService;
+
     @PostMapping("/add")
-    public String save(@RequestBody UserService.UserWrapper userWrapper) throws MessagingException, UnsupportedEncodingException {
+    public String save(@RequestBody UserService.UserWrapper userWrapper) throws MessagingException,
+            UnsupportedEncodingException {
+        tokenValidationService.generateToken("frontend token");
         return userService.save(userWrapper);
     }
     
     @PostMapping("/login")
-    public String login(@RequestBody UserValidationService.LoginUserWrapper loginUserWrapper) {
-        return userValidationService.isUsernameAndPasswordValid(loginUserWrapper);
+    public boolean login(@RequestHeader(HttpHeaders.AUTHORIZATION) String requestToken,
+                         @RequestBody UserValidationService.LoginUserWrapper loginUserWrapper) {
+        if (tokenValidationService.verifyToken(requestToken.substring(7))) {
+            return userValidationService.isUsernameAndPasswordValid(loginUserWrapper);
+        }
+
+        return false;
     }
+
     @GetMapping("/verify")
     public boolean verify(@RequestParam("code") String verificationCode) {
-        System.out.println("THE VERIFICATION CODE: " + verificationCode);
         return userValidationService.verifyUser(verificationCode);
     }
 

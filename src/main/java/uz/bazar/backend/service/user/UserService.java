@@ -19,16 +19,6 @@ import java.util.Optional;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-
-/*
-{
-  "firstName": "Nematullo",
-  "lastName": "Kozimov",
-  "email": "koznem24@gmail.com",
-  "phoneNumber": "+48 789 215 805",
-  "password":"Nothing"
-}
-*/
 @Service
 public class UserService {
 
