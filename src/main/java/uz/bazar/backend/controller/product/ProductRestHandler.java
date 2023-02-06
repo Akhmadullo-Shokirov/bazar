@@ -36,6 +36,11 @@ public class ProductRestHandler {
     public List<Product> getProductsByCategoryId(@PathVariable("subcategoryId") Long subcategoryId){
         return productService.getProductsByCategoryId(subcategoryId);
     }
+
+    @GetMapping("/by_display_name/{displayName}")
+    public List<Product> getProductsByDisplayName(@PathVariable("displayName") String displayName){
+        return productService.getProductsByDisplayName(displayName);
+    }
 }
 
 

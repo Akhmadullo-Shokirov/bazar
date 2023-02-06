@@ -31,6 +31,7 @@ public class ProductService {
 
     @Autowired
     ProductDescriptionRepository productDescriptionRepository;
+
     @AllArgsConstructor
     @NoArgsConstructor
     @Getter
@@ -79,8 +80,10 @@ public class ProductService {
         return productList;
     }
 
-
-
+    public List<Product> getProductsByDisplayName(String displayName) {
+        List<Product> productList = productRepository.findByDisplayName(displayName);
+        return productList;
+    }
 }
 
 

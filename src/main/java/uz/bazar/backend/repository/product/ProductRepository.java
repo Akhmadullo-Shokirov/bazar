@@ -9,4 +9,7 @@ import java.util.List;
 public interface ProductRepository extends CrudRepository<Product, String> {
     @Query(value = "SELECT * FROM product WHERE sub_category_id = ?1", nativeQuery = true)
     List<Product> findBySubCategoryId(Long sub_category_id);
+
+    @Query(value = "SELECT * FROM product WHERE display_name LIKE %?1%", nativeQuery = true)
+    List<Product> findByDisplayName(String displayName);
 }
