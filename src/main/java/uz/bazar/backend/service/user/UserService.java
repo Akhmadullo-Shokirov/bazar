@@ -3,6 +3,8 @@ package uz.bazar.backend.service.user;
 import lombok.*;
 import net.bytebuddy.utility.RandomString;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -15,6 +17,7 @@ import uz.bazar.backend.repository.user.UserRepository;
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
 import java.io.UnsupportedEncodingException;
+import java.util.List;
 import java.util.Optional;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -159,5 +162,14 @@ public class UserService {
             return optionalUser.get();
         }
         return null;
+    }
+
+    public ResponseEntity<List<Product>> getSellerProducts(String userId) {
+        Optional<User> userSeller = userRepository.findById(userId);
+        if (userSeller.isPresent()) {
+            return new ResponseEntity<>(userRepository.findSellerProductsBySellerId(userId), HttpStatus.OK);
+        }
+
+        return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
     }
 }
