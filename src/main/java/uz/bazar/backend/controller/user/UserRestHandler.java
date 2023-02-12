@@ -1,5 +1,6 @@
 package uz.bazar.backend.controller.user;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -15,6 +16,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/user")
 @CrossOrigin
+@Slf4j
 public class UserRestHandler {
 
     @Autowired
@@ -35,7 +37,7 @@ public class UserRestHandler {
     }
     @GetMapping("/verify")
     public boolean verify(@RequestParam("code") String verificationCode) {
-        System.out.println("THE VERIFICATION CODE: " + verificationCode);
+        log.debug("THE VERIFICATION CODE: " + verificationCode);
         return userValidationService.verifyUser(verificationCode);
     }
 

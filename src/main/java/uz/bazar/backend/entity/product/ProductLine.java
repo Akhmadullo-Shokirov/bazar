@@ -1,10 +1,13 @@
 package uz.bazar.backend.entity.product;
 
+import lombok.extern.slf4j.Slf4j;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
+@Slf4j
 public class ProductLine {
 
     @Id
@@ -25,7 +28,7 @@ public class ProductLine {
     }
 
     public void setSubCategoryList(List<SubCategory> subCategoryList) {
-        System.out.println(subCategoryList);
+        log.info(subCategoryList.toString());
         if(subCategoryList == null){
             this.subCategoryList = new ArrayList<>();
         }

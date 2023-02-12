@@ -1,5 +1,6 @@
 package uz.bazar.backend.service.product_description;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.util.StringUtils;
 import lombok.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +12,7 @@ import uz.bazar.backend.repository.ProductPhotoRepository;
 import uz.bazar.backend.repository.product.ProductDescriptionRepository;
 
 @Service
+@Slf4j
 public class ProductDescriptionService {
 
     @Autowired
@@ -37,7 +39,7 @@ public class ProductDescriptionService {
 
         for(MultipartFile image: images){
             String fileName = StringUtils.cleanPath(image.getOriginalFilename());
-            System.out.println(fileName);
+            log.info(fileName);
             try{
                 if(fileName.contains("..")){
                     throw new Exception("File name contains invalid path sequence" + fileName);
@@ -52,14 +54,14 @@ public class ProductDescriptionService {
         }
         productDescriptionRepository.save(productDescription);
 
-        System.out.println("Product image ids: " + productDescription.getProductPhotos());
+        log.info("Product image ids: " + productDescription.getProductPhotos());
         return savedProductDescriptionId;
     }
 
     public ProductPhoto getSingleProductPhoto(String productDescriptionId){
 
         ProductDescription productDescription = productDescriptionRepository.getReferenceById(productDescriptionId);
-        System.out.println("product description photo" + productDescription.getProductPhotos().get(0));
+        log.info("product description photo" + productDescription.getProductPhotos().get(0));
         return productPhotoRepository.getReferenceById(productDescription.getProductPhotos().get(0));
     }
 
