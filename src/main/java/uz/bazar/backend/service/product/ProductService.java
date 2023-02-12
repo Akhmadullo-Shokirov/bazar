@@ -1,6 +1,7 @@
 package uz.bazar.backend.service.product;
 
 import lombok.*;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import uz.bazar.backend.entity.Rating;
@@ -18,6 +19,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
+@Slf4j
 public class ProductService {
 
     @Autowired
@@ -51,15 +53,14 @@ public class ProductService {
         productToSave.setDisplayName(productWrapper.getDisplayName());
         productToSave.setPrice(productWrapper.getPrice());
         productToSave.setLeftInStock(productWrapper.getLeftInStock());
-
-        System.out.println(productWrapper.getOwnerId());
+        log.info(productWrapper.getOwnerId());
         User user = userRepository.findById(productWrapper.getOwnerId()).get();
         productToSave.setOwner(user);
 
         SubCategory subCategory = subCategoryRepository.findById(productWrapper.getSubCategoryId()).get();
         productToSave.setSubCategory(subCategory);
 
-        System.out.println(productWrapper.getProductDescriptionId());
+        log.info(productWrapper.getProductDescriptionId());
         ProductDescription productDescription = productDescriptionRepository.findById(productWrapper.getProductDescriptionId()).get();
         productToSave.setProductDescription(productDescription);
 

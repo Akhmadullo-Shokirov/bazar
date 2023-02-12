@@ -1,6 +1,7 @@
 package uz.bazar.backend.service.user;
 
 import lombok.*;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -8,6 +9,7 @@ import uz.bazar.backend.entity.User;
 import uz.bazar.backend.repository.user.UserRepository;
 
 @Service
+@Slf4j
 public class UserValidationService {
     @Autowired
     UserRepository userRepository;
@@ -62,14 +64,14 @@ public class UserValidationService {
         User unverifiedUser = userRepository.findByVerificationCode(verificationCode);
 
         if (unverifiedUser == null || unverifiedUser.isActive()) {
-            System.out.println("This user doesn't exist or already verified");
+            log.debug("This user doesn't exist or already verified");
             return false;
         } else {
 //              User is verified, account active status will be set to TRUE
             unverifiedUser.setVerificationCode(null);
             unverifiedUser.setActive(true);
             userRepository.save(unverifiedUser);
-            System.out.println("User is verified: " + unverifiedUser.getFirstName());
+            log.debug("User is verified: " + unverifiedUser.getFirstName());
             return true;
         }
     }
